@@ -12,11 +12,7 @@ class SecondViewController: UIViewController {
    
    @IBOutlet weak var backgroundImageView: UIImageView!
    @IBOutlet weak var gradientView: UIView!
-   
-   @IBOutlet weak var cardView: UIView!
-   @IBOutlet weak var cardViewTitleLabel: UILabel!
-   @IBOutlet weak var cardViewSubtitleLabel: UILabel!
-   @IBOutlet weak var cardViewImageView: UIImageView!
+   @IBOutlet weak var cardView: CardView!
    
    @IBOutlet weak var buttonContainerView: UIView!
    @IBOutlet weak var buttonBackgroundView: UIView!
@@ -27,14 +23,14 @@ class SecondViewController: UIViewController {
    @IBOutlet weak var twitterButton: UIButton!
    @IBOutlet weak var facebookButton: UIButton!
    
-   @IBOutlet weak var thumbImageView: UIImageView!
+   
    override func viewDidLoad() {
       super.viewDidLoad()
       gradientView.setGradient(firstColor: UIColor(white: 0, alpha: 0.0), secondColor: UIColor(white: 0, alpha: 0.3))
-      
-      setUpCardView()
       setUpButtonDrawer()
       
+      cardView.configureCard()
+      cardView.configurePosition()
       cardView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panCard)))
    }
    
@@ -45,14 +41,15 @@ class SecondViewController: UIViewController {
       let xFromCenter = card.center.x - view.center.x
       
       card.center = CGPoint(x: view.center.x + point.x, y: view.center.y)
+      
       card.transform = CGAffineTransform(rotationAngle: (xFromCenter * (0.4 / view.frame.width))).translatedBy(x: 0, y: abs(xFromCenter) * (50 / view.frame.width))
       if xFromCenter > 0 {
-         thumbImageView.image = #imageLiteral(resourceName: "thumbUp")
+         cardView.thumbsImageView.image = #imageLiteral(resourceName: "thumbUp")
       } else {
-         thumbImageView.image = #imageLiteral(resourceName: "thumbDown")
+         cardView.thumbsImageView.image = #imageLiteral(resourceName: "thumbDown")
       }
       
-      thumbImageView.alpha = abs(xFromCenter / view.center.x)
+      cardView.thumbsImageView.alpha = abs(xFromCenter / view.center.x)
       
       if sender.state == .ended {
          if card.center.x < 0 {
@@ -73,7 +70,7 @@ class SecondViewController: UIViewController {
             UIView.animate(withDuration: 0.2) {
                card.center = self.view.center
                card.transform = .identity
-               self.thumbImageView.alpha = 0
+               self.cardView.thumbsImageView.alpha = 0
             }
          }
       }
@@ -116,16 +113,6 @@ class SecondViewController: UIViewController {
          self.twitterButton.alpha = alpha
          self.facebookButton.alpha = alpha
       }
-   }
-   
-   
-   func setUpCardView() {
-      cardView.layer.cornerRadius = 12
-      cardView.layer.masksToBounds = true
-      cardView.backgroundColor = UIColor(white: 0, alpha: 0.8)
-      cardViewImageView.layer.cornerRadius = 12
-      cardViewImageView.layer.masksToBounds = true
-      thumbImageView.alpha = 0
    }
    
    

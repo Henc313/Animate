@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B244F33E23574AF20002F513 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244F33D23574AF20002F513 /* CardView.swift */; };
 		B2988A6A2355BF7E003C060E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2988A692355BF7E003C060E /* AppDelegate.swift */; };
 		B2988A6C2355BF7E003C060E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2988A6B2355BF7E003C060E /* SceneDelegate.swift */; };
 		B2988A6E2355BF7E003C060E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2988A6D2355BF7E003C060E /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B244F33D23574AF20002F513 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		B2988A662355BF7E003C060E /* Animate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Animate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2988A692355BF7E003C060E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2988A6B2355BF7E003C060E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				B2988A6B2355BF7E003C060E /* SceneDelegate.swift */,
 				B2988A6D2355BF7E003C060E /* ViewController.swift */,
 				B2C1F49C2355EC7000D59C0B /* SecondViewController.swift */,
+				B244F33D23574AF20002F513 /* CardView.swift */,
 				B2988A6F2355BF7E003C060E /* Main.storyboard */,
 				B2C1F49E2355F67600D59C0B /* Images.swift */,
 				B2988A722355BF81003C060E /* Assets.xcassets */,
@@ -148,6 +151,7 @@
 				B2988A6E2355BF7E003C060E /* ViewController.swift in Sources */,
 				B2C1F49F2355F67600D59C0B /* Images.swift in Sources */,
 				B2988A6A2355BF7E003C060E /* AppDelegate.swift in Sources */,
+				B244F33E23574AF20002F513 /* CardView.swift in Sources */,
 				B2988A6C2355BF7E003C060E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

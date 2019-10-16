@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NYStreet" translatesAutoresizingMaskIntoConstraints="NO" id="Bk5-rZ-yVP">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FirstVCBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Bk5-rZ-yVP">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JN6-6a-BFj" userLabel="Gradient View">
@@ -86,13 +86,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="street2" translatesAutoresizingMaskIntoConstraints="NO" id="cwu-ke-XOx">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SecondVCBackground" translatesAutoresizingMaskIntoConstraints="NO" id="cwu-ke-XOx">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjQ-gN-Z4D">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OvV-c1-xZI" userLabel="CardView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OvV-c1-xZI" userLabel="CardView" customClass="CardView" customModule="Animate" customModuleProvider="target">
                                         <rect key="frame" x="42" y="218" width="330" height="460"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Like or dislike" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIP-3f-Ofq">
@@ -109,7 +109,7 @@
                                                 <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="city3" translatesAutoresizingMaskIntoConstraints="NO" id="BTd-DK-MUO">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="city1" translatesAutoresizingMaskIntoConstraints="NO" id="BTd-DK-MUO">
                                                 <rect key="frame" x="24" y="119" width="282" height="311"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -121,9 +121,15 @@
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="460" id="PMm-ri-Vkg"/>
-                                            <constraint firstAttribute="width" constant="330" id="ord-SX-c2I"/>
+                                            <constraint firstAttribute="width" constant="330" id="LM7-Rs-njT"/>
+                                            <constraint firstAttribute="height" constant="460" id="gG3-Vc-BEp"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="BTd-DK-MUO" id="gfp-ew-Nwl"/>
+                                            <outlet property="subtitleLabel" destination="3ik-js-2iz" id="0ya-wP-8k2"/>
+                                            <outlet property="thumbsImageView" destination="lqL-hJ-v5Z" id="lFI-yJ-uWZ"/>
+                                            <outlet property="titleLabel" destination="yIP-3f-Ofq" id="qwg-dY-Wrw"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcE-gk-9EJ">
                                         <rect key="frame" x="0.0" y="833" width="414" height="128"/>
@@ -148,7 +154,7 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="erD-Il-wAJ">
-                                                <rect key="frame" x="42" y="52" width="330" height="44"/>
+                                                <rect key="frame" x="54.5" y="52" width="305" height="44"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jtj-pB-Ceg" userLabel="Instagram">
                                                         <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -159,15 +165,15 @@
                                                         <state key="normal" title="Button" image="instagram"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CsT-p8-Uot" userLabel="Email">
-                                                        <rect key="frame" x="95.5" y="0.0" width="44" height="44"/>
+                                                        <rect key="frame" x="87" y="0.0" width="44" height="44"/>
                                                         <state key="normal" title="Button" image="email"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IfR-08-zIu" userLabel="Twitter">
-                                                        <rect key="frame" x="190.5" y="0.0" width="44" height="44"/>
+                                                        <rect key="frame" x="174" y="0.0" width="44" height="44"/>
                                                         <state key="normal" title="Button" image="twitter"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Caf-tR-mCc" userLabel="Facebook">
-                                                        <rect key="frame" x="286" y="0.0" width="44" height="44"/>
+                                                        <rect key="frame" x="261" y="0.0" width="44" height="44"/>
                                                         <state key="normal" image="facebook"/>
                                                     </button>
                                                 </subviews>
@@ -193,12 +199,11 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="erD-Il-wAJ" firstAttribute="width" secondItem="OvV-c1-xZI" secondAttribute="width" id="0HO-tZ-gyc"/>
                                     <constraint firstItem="rcE-gk-9EJ" firstAttribute="leading" secondItem="yjQ-gN-Z4D" secondAttribute="leading" id="5HU-0a-IT1"/>
-                                    <constraint firstItem="OvV-c1-xZI" firstAttribute="centerY" secondItem="yjQ-gN-Z4D" secondAttribute="centerY" id="9nh-Lg-bx6"/>
                                     <constraint firstAttribute="bottom" secondItem="rcE-gk-9EJ" secondAttribute="bottom" constant="-65" id="Qcs-u2-epx"/>
+                                    <constraint firstItem="OvV-c1-xZI" firstAttribute="centerX" secondItem="yjQ-gN-Z4D" secondAttribute="centerX" id="ZF0-hQ-X14"/>
+                                    <constraint firstItem="OvV-c1-xZI" firstAttribute="centerY" secondItem="yjQ-gN-Z4D" secondAttribute="centerY" id="e38-0f-irK"/>
                                     <constraint firstAttribute="trailing" secondItem="rcE-gk-9EJ" secondAttribute="trailing" id="rmC-RZ-3Vo"/>
-                                    <constraint firstItem="OvV-c1-xZI" firstAttribute="centerX" secondItem="yjQ-gN-Z4D" secondAttribute="centerX" id="skv-0K-ZM3"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -220,16 +225,12 @@
                         <outlet property="backgroundImageView" destination="cwu-ke-XOx" id="fso-kK-PxY"/>
                         <outlet property="buttonBackgroundView" destination="tJC-gM-1r4" id="QTF-hH-MKj"/>
                         <outlet property="buttonContainerView" destination="rcE-gk-9EJ" id="sFU-ga-p3V"/>
-                        <outlet property="cardView" destination="OvV-c1-xZI" id="ebE-n0-WdD"/>
-                        <outlet property="cardViewImageView" destination="BTd-DK-MUO" id="ym3-Hw-ukg"/>
-                        <outlet property="cardViewSubtitleLabel" destination="3ik-js-2iz" id="fSp-Fz-PB1"/>
-                        <outlet property="cardViewTitleLabel" destination="yIP-3f-Ofq" id="0ae-XH-t1Q"/>
+                        <outlet property="cardView" destination="OvV-c1-xZI" id="IaM-kf-CEX"/>
                         <outlet property="emailButton" destination="CsT-p8-Uot" id="j1E-8H-THf"/>
                         <outlet property="facebookButton" destination="Caf-tR-mCc" id="pVg-dX-bQa"/>
                         <outlet property="gradientView" destination="yjQ-gN-Z4D" id="29A-Od-dRi"/>
                         <outlet property="instagramButton" destination="Jtj-pB-Ceg" id="xqX-J4-Ork"/>
                         <outlet property="menuButton" destination="lIU-bo-wEF" id="JVf-D2-TjS"/>
-                        <outlet property="thumbImageView" destination="lqL-hJ-v5Z" id="oeY-ER-aTO"/>
                         <outlet property="twitterButton" destination="IfR-08-zIu" id="PnT-m0-F4B"/>
                     </connections>
                 </viewController>
@@ -257,14 +258,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NYStreet" width="4000" height="6000"/>
+        <image name="FirstVCBackground" width="4000" height="6000"/>
+        <image name="SecondVCBackground" width="4000" height="6000"/>
         <image name="UpArrow" width="700" height="700"/>
-        <image name="city3" width="4912" height="6144"/>
+        <image name="city1" width="4912" height="6144"/>
         <image name="email" width="700" height="700"/>
         <image name="facebook" width="700" height="700"/>
         <image name="instagram" width="700" height="700"/>
         <image name="search" width="700" height="700"/>
-        <image name="street2" width="4000" height="6000"/>
         <image name="thumbDown" width="512" height="512"/>
         <image name="twitter" width="700" height="700"/>
     </resources>
