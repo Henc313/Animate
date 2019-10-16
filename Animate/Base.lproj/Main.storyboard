@@ -92,45 +92,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjQ-gN-Z4D">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OvV-c1-xZI" userLabel="CardView" customClass="CardView" customModule="Animate" customModuleProvider="target">
-                                        <rect key="frame" x="42" y="218" width="330" height="460"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Like or dislike" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIP-3f-Ofq">
-                                                <rect key="frame" x="8" y="8" width="314" height="76"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="26"/>
-                                                <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Photo by Max Bender on Unsplash" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ik-js-2iz">
-                                                <rect key="frame" x="8" y="72" width="314" height="39"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="city1" translatesAutoresizingMaskIntoConstraints="NO" id="BTd-DK-MUO">
-                                                <rect key="frame" x="24" y="119" width="282" height="311"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="thumbDown" translatesAutoresizingMaskIntoConstraints="NO" id="lqL-hJ-v5Z">
-                                                <rect key="frame" x="97" y="206" width="137" height="137"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="330" id="LM7-Rs-njT"/>
-                                            <constraint firstAttribute="height" constant="460" id="gG3-Vc-BEp"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="imageView" destination="BTd-DK-MUO" id="gfp-ew-Nwl"/>
-                                            <outlet property="subtitleLabel" destination="3ik-js-2iz" id="0ya-wP-8k2"/>
-                                            <outlet property="thumbsImageView" destination="lqL-hJ-v5Z" id="lFI-yJ-uWZ"/>
-                                            <outlet property="titleLabel" destination="yIP-3f-Ofq" id="qwg-dY-Wrw"/>
-                                        </connections>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcE-gk-9EJ">
                                         <rect key="frame" x="0.0" y="833" width="414" height="128"/>
                                         <subviews>
@@ -201,8 +162,6 @@
                                 <constraints>
                                     <constraint firstItem="rcE-gk-9EJ" firstAttribute="leading" secondItem="yjQ-gN-Z4D" secondAttribute="leading" id="5HU-0a-IT1"/>
                                     <constraint firstAttribute="bottom" secondItem="rcE-gk-9EJ" secondAttribute="bottom" constant="-65" id="Qcs-u2-epx"/>
-                                    <constraint firstItem="OvV-c1-xZI" firstAttribute="centerX" secondItem="yjQ-gN-Z4D" secondAttribute="centerX" id="ZF0-hQ-X14"/>
-                                    <constraint firstItem="OvV-c1-xZI" firstAttribute="centerY" secondItem="yjQ-gN-Z4D" secondAttribute="centerY" id="e38-0f-irK"/>
                                     <constraint firstAttribute="trailing" secondItem="rcE-gk-9EJ" secondAttribute="trailing" id="rmC-RZ-3Vo"/>
                                 </constraints>
                             </view>
@@ -225,7 +184,6 @@
                         <outlet property="backgroundImageView" destination="cwu-ke-XOx" id="fso-kK-PxY"/>
                         <outlet property="buttonBackgroundView" destination="tJC-gM-1r4" id="QTF-hH-MKj"/>
                         <outlet property="buttonContainerView" destination="rcE-gk-9EJ" id="sFU-ga-p3V"/>
-                        <outlet property="cardView" destination="OvV-c1-xZI" id="IaM-kf-CEX"/>
                         <outlet property="emailButton" destination="CsT-p8-Uot" id="j1E-8H-THf"/>
                         <outlet property="facebookButton" destination="Caf-tR-mCc" id="pVg-dX-bQa"/>
                         <outlet property="gradientView" destination="yjQ-gN-Z4D" id="29A-Od-dRi"/>
@@ -261,12 +219,10 @@
         <image name="FirstVCBackground" width="4000" height="6000"/>
         <image name="SecondVCBackground" width="4000" height="6000"/>
         <image name="UpArrow" width="700" height="700"/>
-        <image name="city1" width="4912" height="6144"/>
         <image name="email" width="700" height="700"/>
         <image name="facebook" width="700" height="700"/>
         <image name="instagram" width="700" height="700"/>
         <image name="search" width="700" height="700"/>
-        <image name="thumbDown" width="512" height="512"/>
         <image name="twitter" width="700" height="700"/>
     </resources>
     <color key="tintColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

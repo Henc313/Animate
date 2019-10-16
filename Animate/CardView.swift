@@ -8,30 +8,39 @@
 
 import UIKit
 
-class CardView: UIView {
+class CardView: UIView {   
    
-   @IBOutlet weak var titleLabel: UILabel!
-   @IBOutlet weak var subtitleLabel: UILabel!
-   @IBOutlet weak var imageView: UIImageView!
-   @IBOutlet weak var thumbsImageView: UIImageView!
-   
-   
-   func configurePosition() {
-      centerXAnchor.constraint(equalTo: superview!.centerXAnchor).isActive = true
-      centerYAnchor.constraint(equalTo: superview!.centerYAnchor).isActive = true
-      widthAnchor.constraint(equalToConstant: 330).isActive = true
-      heightAnchor.constraint(equalToConstant: 460).isActive = true
+   override init(frame: CGRect) {
+      super.init(frame: frame)
+      addSubview(label)
+      configureCard()
+      setupLabelViewConstraints()
    }
+   
+   required init?(coder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+   }
+   
+   fileprivate func setupLabelViewConstraints() {
+      label.translatesAutoresizingMaskIntoConstraints                                   = false
+      label.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0).isActive = true
+      label.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive     = true
+      label.widthAnchor.constraint(equalToConstant: 200).isActive = true
+      label.heightAnchor.constraint(equalToConstant: 44).isActive = true
+   }
+   
+   let label: UILabel = {
+      let label = UILabel(frame: CGRect(x: 10, y: 10, width: 80, height: 44))
+      label.layer.borderWidth = 1.0
+      label.layer.borderColor = UIColor.lightGray.cgColor
+      return label
+   }()
    
    
    func configureCard() {
       layer.cornerRadius = 12
       layer.masksToBounds = true
       backgroundColor = UIColor(white: 0, alpha: 0.8)
-      imageView.image = #imageLiteral(resourceName: "city2")
-      imageView.layer.cornerRadius = 12
-      imageView.layer.masksToBounds = true
-      thumbsImageView.alpha = 0
    }
    
    
