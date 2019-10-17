@@ -6,9 +6,26 @@
 //  Copyright © 2019 Henry Kivimaa. All rights reserved.
 //
 
+
+
+
+
+//TODO: - Create a ContainerView to contain the card stack. Add new cards on top of that view (insertAbove)
+// Use containerView.subview.count to add new cards to the stack
+
 import UIKit
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, SwipeCardsDelegate {
+   
+   var cardCount = 1
+   
+   func swipeDidEnd(on cardView: CardView) {
+      cardView.removeFromSuperview()
+      for _ in 1...visibleCards {
+         let newCard = CardView()
+         addCard(card: newCard)
+      }
+   }
    
    //MARK:- Outlets
    @IBOutlet weak var backgroundImageView: UIImageView!
@@ -23,25 +40,41 @@ class SecondViewController: UIViewController {
    @IBOutlet weak var twitterButton: UIButton!
    @IBOutlet weak var facebookButton: UIButton!
    
-   var cardView: CardView?
    var visibleCards = 3
-   var cardsStack: [CardView]?
    
    //MARK:- View Load Methods
    override func viewDidLoad() {
       super.viewDidLoad()
+      
       gradientView.setGradient(firstColor: UIColor(white: 0, alpha: 0.0), secondColor: UIColor(white: 0, alpha: 0.3))
       setUpButtonDrawer()
       
-      cardView = CardView()
-      cardView?.subtitleLabel.text = "Photo by Rob Robinson"
-      view.addSubview(cardView!)
+      let initialCard = CardView()
+      initialCard.delegate = self
+      view.addSubview(initialCard)
+      initialCard.configureCard()
+      initialCard.centerCardIn(view)
    }
    
-   func configureCardPositionInView() {
-      cardView?.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-      cardView?.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+   func addCard(card: CardView) {
+      if cardCount < cards.count {
+         card.delegate = self
+         view.insertSubview(card, aboveSubview: gradientView)
+         card.configureCard()
+         card.centerCardIn(view)
+         card.imageView.image = cards[cardCount].image
+         card.subtitleLabel.text = cards[cardCount].title
+         cardCount += 1
+      } else {
+         card.delegate = self
+         view.addSubview(card)
+         card.configureCard()
+         card.centerCardIn(view)
+         card.titleLabel.text = "THAT'S IT"
+      }
+
    }
+   
    
    @IBAction func toggleMenuTapped(_ sender: UIButton) {
       if buttonBackgroundView.transform.isIdentity {
