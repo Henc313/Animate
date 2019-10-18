@@ -8,17 +8,17 @@
 
 import UIKit
 
-
-protocol SwipeCardsDelegate {
-   func swipeDidEnd(on cardView: CardView)
-}
-
 class CardView: UIView {
    
-   let mainView = UIScreen.main.bounds
    var delegate: SwipeCardsDelegate?
    
-   
+   var dataSource : Card? {
+      didSet {
+         guard let image = dataSource?.image else { return }
+         imageView.image = image
+         subtitleLabel.text = dataSource?.title
+      }
+   }
    
    //MARK:- Initializers
    override init(frame: CGRect) {
@@ -39,84 +39,30 @@ class CardView: UIView {
       fatalError("init(coder:) has not been implemented")
    }
    
-   //MARK:- Constraints
-   func centerCardIn(_ view: UIView) {
-      self.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-      self.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-   }
-   
-   fileprivate func setupCardViewConstraints() {
-      self.translatesAutoresizingMaskIntoConstraints                      = false
-      self.heightAnchor.constraint(equalToConstant: 460).isActive         = true
-      self.widthAnchor.constraint(equalToConstant: 330).isActive          = true
-   }
-   
-   fileprivate func setupLabelConstraints() {
-      titleLabel.translatesAutoresizingMaskIntoConstraints                                   = false
-      titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0).isActive = true
-      titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive        = true
-      titleLabel.widthAnchor.constraint(equalToConstant: 300).isActive                       = true
-      titleLabel.heightAnchor.constraint(equalToConstant: 64).isActive                       = true
-   }
-   
-   fileprivate func setupSubtitleLabelConstraints() {
-      subtitleLabel.translatesAutoresizingMaskIntoConstraints                                     = false
-      subtitleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0).isActive   = true
-      subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
-      subtitleLabel.widthAnchor.constraint(equalToConstant: 200).isActive                         = true
-      subtitleLabel.heightAnchor.constraint(equalToConstant: 20).isActive                         = true
-   }
-   
-   fileprivate func setupImageViewConstraints() {
-      imageView.translatesAutoresizingMaskIntoConstraints                                        = false
-      imageView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 20).isActive = true
-      imageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 30).isActive           = true
-      imageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -30).isActive        = true
-      imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30).isActive      = true
-      imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0).isActive      = true
-      
-   }
-   
-   fileprivate func setupThumbImageViewConstraints() {
-      thumbImageView.translatesAutoresizingMaskIntoConstraints                                        = false
-      thumbImageView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor).isActive      = true
-      thumbImageView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor).isActive = true
-      thumbImageView.widthAnchor.constraint(equalToConstant: 140).isActive = true
-      thumbImageView.heightAnchor.constraint(equalToConstant: 140).isActive = true
-   }
-   
    //MARK:- Views
    let titleLabel: UILabel = {
-      let label               = UILabel(frame: CGRect(x: 10, y: 10, width: 80, height: 44))
-      label.layer.borderWidth = 1.0
-      label.layer.borderColor = UIColor.lightGray.cgColor
-      label.textAlignment     = .center
-      label.font              = UIFont(name: "HelveticaNeue-Thin", size: 42)
-      label.text              = "Like or dislike"
+      let label           = UILabel(frame: CGRect(x: 10, y: 10, width: 80, height: 44))
+      label.textAlignment = .center
+      label.font          = UIFont(name: "HelveticaNeue-Thin", size: 38)
+      label.text          = "Like or dislike"
       return label
    }()
    
    let subtitleLabel: UILabel = {
-      let subtitleLabel               = UILabel(frame: CGRect(x: 10, y: 10, width: 80, height: 44))
-      subtitleLabel.layer.borderWidth = 1.0
-      subtitleLabel.layer.borderColor = UIColor.lightGray.cgColor
-      subtitleLabel.textAlignment     = .center
-      subtitleLabel.font              = UIFont(name: "HelveticaNeue-Thin", size: 14)
+      let subtitleLabel           = UILabel(frame: CGRect(x: 10, y: 10, width: 80, height: 44))
+      subtitleLabel.textAlignment = .center
+      subtitleLabel.font          = UIFont(name: "HelveticaNeue-Thin", size: 14)
       return subtitleLabel
    }()
    
    let imageView: UIImageView = {
       let imageView                = UIImageView(frame: CGRect(x: 50, y: 50, width: 100, height: 100))
-      imageView.layer.borderWidth  = 1.0
-      imageView.layer.borderColor  = UIColor.lightGray.cgColor
       imageView.layer.cornerRadius = 12
       return imageView
    }()
    
    let thumbImageView: UIImageView = {
       let thumbImageView = UIImageView(frame: CGRect(x: 50, y: 50, width: 100, height: 100))
-      thumbImageView.layer.borderWidth = 1.0
-      thumbImageView.layer.borderColor = UIColor.lightGray.cgColor
       return thumbImageView
    }()
    
@@ -129,20 +75,20 @@ class CardView: UIView {
    }
    
    @objc func panCard(_ sender: UIPanGestureRecognizer) {
-      guard let card = sender.view as? CardView else { return }
+      let card = sender.view as! CardView
       let point = sender.translation(in: card)
-      let xFromCenter = card.center.x - mainView.midX
+      let xFromCenter = card.center.x - (self.frame.width / 2)
       
-      card.center = CGPoint(x: mainView.midX + point.x, y: mainView.midY)
+      card.center = CGPoint(x: (self.frame.width / 2) + point.x, y: self.frame.height / 2)
       
-      card.transform = CGAffineTransform(rotationAngle: (xFromCenter * (0.4 / mainView.width))).translatedBy(x: 0, y: abs(xFromCenter) * (50 / mainView.width))
+      card.transform = CGAffineTransform(rotationAngle: (xFromCenter * (0.4 / self.frame.width))).translatedBy(x: 0, y: abs(xFromCenter) * (50 / self.frame.width))
       if xFromCenter > 0 {
          self.thumbImageView.image = #imageLiteral(resourceName: "thumbUp")
       } else {
          self.thumbImageView.image = #imageLiteral(resourceName: "thumbDown")
       }
       
-      self.thumbImageView.alpha = abs(xFromCenter / mainView.midX)
+      self.thumbImageView.alpha = abs(xFromCenter / (self.frame.width / 2))
       
       if sender.state == .ended {
          if card.center.x < 0 {
@@ -161,8 +107,8 @@ class CardView: UIView {
             }
          } else {
             UIView.animate(withDuration: 0.2) {
-               card.center = CGPoint(x: self.mainView.midX, y: self.mainView.midY)
                card.transform = .identity
+               card.center = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
                self.thumbImageView.alpha = 0
             }
          }

@@ -114,47 +114,46 @@
                                                     <action selector="toggleMenuTapped:" destination="uJo-6S-JwQ" eventType="touchUpInside" id="RAt-8a-xfX"/>
                                                 </connections>
                                             </button>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="erD-Il-wAJ">
-                                                <rect key="frame" x="54.5" y="52" width="305" height="44"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jtj-pB-Ceg" userLabel="Instagram">
-                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="44" id="j2W-IF-tuC"/>
-                                                            <constraint firstAttribute="width" constant="44" id="lKB-Yn-EAb"/>
-                                                        </constraints>
-                                                        <state key="normal" title="Button" image="instagram"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CsT-p8-Uot" userLabel="Email">
-                                                        <rect key="frame" x="87" y="0.0" width="44" height="44"/>
-                                                        <state key="normal" title="Button" image="email"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IfR-08-zIu" userLabel="Twitter">
-                                                        <rect key="frame" x="174" y="0.0" width="44" height="44"/>
-                                                        <state key="normal" title="Button" image="twitter"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Caf-tR-mCc" userLabel="Facebook">
-                                                        <rect key="frame" x="261" y="0.0" width="44" height="44"/>
-                                                        <state key="normal" image="facebook"/>
-                                                    </button>
-                                                </subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Caf-tR-mCc" userLabel="Facebook">
+                                                <rect key="frame" x="185" y="52" width="44" height="44"/>
+                                                <state key="normal" image="facebook"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IfR-08-zIu" userLabel="Twitter">
+                                                <rect key="frame" x="185" y="52" width="44" height="44"/>
+                                                <state key="normal" title="Button" image="twitter"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CsT-p8-Uot" userLabel="Email">
+                                                <rect key="frame" x="185" y="52" width="44" height="44"/>
+                                                <state key="normal" title="Button" image="email"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jtj-pB-Ceg" userLabel="Instagram">
+                                                <rect key="frame" x="185" y="52" width="44" height="44"/>
                                                 <constraints>
-                                                    <constraint firstItem="Caf-tR-mCc" firstAttribute="height" secondItem="Jtj-pB-Ceg" secondAttribute="height" id="0Z6-2n-2LU"/>
-                                                    <constraint firstItem="CsT-p8-Uot" firstAttribute="width" secondItem="Jtj-pB-Ceg" secondAttribute="width" id="1De-MB-qLj"/>
-                                                    <constraint firstItem="IfR-08-zIu" firstAttribute="width" secondItem="Jtj-pB-Ceg" secondAttribute="width" id="BO1-1I-BKM"/>
-                                                    <constraint firstItem="CsT-p8-Uot" firstAttribute="height" secondItem="Jtj-pB-Ceg" secondAttribute="height" id="Lea-qK-6hF"/>
-                                                    <constraint firstItem="IfR-08-zIu" firstAttribute="height" secondItem="Jtj-pB-Ceg" secondAttribute="height" id="xEB-NK-x1O"/>
-                                                    <constraint firstItem="Caf-tR-mCc" firstAttribute="width" secondItem="Jtj-pB-Ceg" secondAttribute="width" id="xF8-RQ-f2s"/>
+                                                    <constraint firstAttribute="height" constant="44" id="j2W-IF-tuC"/>
+                                                    <constraint firstAttribute="width" constant="44" id="lKB-Yn-EAb"/>
                                                 </constraints>
-                                            </stackView>
+                                                <state key="normal" title="Button" image="instagram"/>
+                                            </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="erD-Il-wAJ" firstAttribute="top" secondItem="lIU-bo-wEF" secondAttribute="bottom" id="HZp-pq-wqQ"/>
+                                            <constraint firstItem="Jtj-pB-Ceg" firstAttribute="centerX" secondItem="rcE-gk-9EJ" secondAttribute="centerX" id="129-9p-mRW"/>
+                                            <constraint firstItem="Jtj-pB-Ceg" firstAttribute="top" secondItem="lIU-bo-wEF" secondAttribute="bottom" id="GD6-2x-FBi"/>
                                             <constraint firstAttribute="height" constant="128" id="I4D-dL-hhY"/>
+                                            <constraint firstItem="CsT-p8-Uot" firstAttribute="top" secondItem="lIU-bo-wEF" secondAttribute="bottom" id="ICY-ly-DgW"/>
+                                            <constraint firstItem="IfR-08-zIu" firstAttribute="centerX" secondItem="rcE-gk-9EJ" secondAttribute="centerX" id="Kjs-kf-INq"/>
+                                            <constraint firstItem="Caf-tR-mCc" firstAttribute="height" secondItem="Jtj-pB-Ceg" secondAttribute="height" id="Kqe-Sq-KBf"/>
                                             <constraint firstItem="lIU-bo-wEF" firstAttribute="centerX" secondItem="rcE-gk-9EJ" secondAttribute="centerX" id="MXA-eF-Zzc"/>
                                             <constraint firstItem="tJC-gM-1r4" firstAttribute="centerX" secondItem="rcE-gk-9EJ" secondAttribute="centerX" id="O6g-lg-4Gj"/>
-                                            <constraint firstItem="erD-Il-wAJ" firstAttribute="centerX" secondItem="rcE-gk-9EJ" secondAttribute="centerX" id="R23-VE-fBs"/>
+                                            <constraint firstItem="Caf-tR-mCc" firstAttribute="centerX" secondItem="rcE-gk-9EJ" secondAttribute="centerX" id="Opc-vp-rKG"/>
+                                            <constraint firstItem="CsT-p8-Uot" firstAttribute="width" secondItem="Jtj-pB-Ceg" secondAttribute="width" id="Xhr-5h-3l2"/>
                                             <constraint firstItem="lIU-bo-wEF" firstAttribute="top" secondItem="rcE-gk-9EJ" secondAttribute="top" constant="8" id="Ye9-8S-c6v"/>
+                                            <constraint firstItem="Caf-tR-mCc" firstAttribute="width" secondItem="Jtj-pB-Ceg" secondAttribute="width" id="Zlh-dz-wro"/>
+                                            <constraint firstItem="Caf-tR-mCc" firstAttribute="top" secondItem="lIU-bo-wEF" secondAttribute="bottom" id="bO1-wt-iH4"/>
+                                            <constraint firstItem="IfR-08-zIu" firstAttribute="top" secondItem="lIU-bo-wEF" secondAttribute="bottom" id="jfJ-Km-Fuu"/>
+                                            <constraint firstItem="CsT-p8-Uot" firstAttribute="centerX" secondItem="rcE-gk-9EJ" secondAttribute="centerX" id="l5O-1D-UAo"/>
+                                            <constraint firstItem="IfR-08-zIu" firstAttribute="height" secondItem="Jtj-pB-Ceg" secondAttribute="height" id="qBN-Kh-8G9"/>
+                                            <constraint firstItem="IfR-08-zIu" firstAttribute="width" secondItem="Jtj-pB-Ceg" secondAttribute="width" id="utv-7b-XDQ"/>
+                                            <constraint firstItem="CsT-p8-Uot" firstAttribute="height" secondItem="Jtj-pB-Ceg" secondAttribute="height" id="wg0-JM-4xe"/>
                                             <constraint firstItem="tJC-gM-1r4" firstAttribute="top" secondItem="rcE-gk-9EJ" secondAttribute="top" constant="8" id="zbZ-yo-CZT"/>
                                         </constraints>
                                     </view>

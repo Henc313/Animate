@@ -6,26 +6,11 @@
 //  Copyright © 2019 Henry Kivimaa. All rights reserved.
 //
 
-
-
-
-
-//TODO: - Create a ContainerView to contain the card stack. Add new cards on top of that view (insertAbove)
-// Use containerView.subview.count to add new cards to the stack
-
 import UIKit
 
-class SecondViewController: UIViewController, SwipeCardsDelegate {
+class SecondViewController: UIViewController {
    
-   var cardCount = 1
-   
-   func swipeDidEnd(on cardView: CardView) {
-      cardView.removeFromSuperview()
-      for _ in 1...visibleCards {
-         let newCard = CardView()
-         addCard(card: newCard)
-      }
-   }
+   var cardContainer: ContainerView!
    
    //MARK:- Outlets
    @IBOutlet weak var backgroundImageView: UIImageView!
@@ -40,41 +25,29 @@ class SecondViewController: UIViewController, SwipeCardsDelegate {
    @IBOutlet weak var twitterButton: UIButton!
    @IBOutlet weak var facebookButton: UIButton!
    
-   var visibleCards = 3
-   
    //MARK:- View Load Methods
+   override func loadView() {
+      super.loadView()
+      cardContainer = ContainerView()
+      view.addSubview(cardContainer)
+      configureCardContainer()
+      cardContainer.dataSource = self
+   }
+   
    override func viewDidLoad() {
       super.viewDidLoad()
       
       gradientView.setGradient(firstColor: UIColor(white: 0, alpha: 0.0), secondColor: UIColor(white: 0, alpha: 0.3))
       setUpButtonDrawer()
-      
-      let initialCard = CardView()
-      initialCard.delegate = self
-      view.addSubview(initialCard)
-      initialCard.configureCard()
-      initialCard.centerCardIn(view)
    }
    
-   func addCard(card: CardView) {
-      if cardCount < cards.count {
-         card.delegate = self
-         view.insertSubview(card, aboveSubview: gradientView)
-         card.configureCard()
-         card.centerCardIn(view)
-         card.imageView.image = cards[cardCount].image
-         card.subtitleLabel.text = cards[cardCount].title
-         cardCount += 1
-      } else {
-         card.delegate = self
-         view.addSubview(card)
-         card.configureCard()
-         card.centerCardIn(view)
-         card.titleLabel.text = "THAT'S IT"
-      }
-
+   func configureCardContainer() {
+      cardContainer.translatesAutoresizingMaskIntoConstraints                      = false
+      cardContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+      cardContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+      cardContainer.widthAnchor.constraint(equalToConstant: 330).isActive          = true
+      cardContainer.heightAnchor.constraint(equalToConstant: 460).isActive         = true
    }
-   
    
    @IBAction func toggleMenuTapped(_ sender: UIButton) {
       if buttonBackgroundView.transform.isIdentity {
@@ -83,11 +56,10 @@ class SecondViewController: UIViewController, SwipeCardsDelegate {
             self.buttonContainerView.transform  = CGAffineTransform(translationX: 0, y: -65)
             self.menuButton.transform           = CGAffineTransform(rotationAngle: .pi)
             self.toggleSocialButtons()
-            self.instagramButton.transform = .identity
-            self.emailButton.transform     = .identity
-            self.twitterButton.transform   = .identity
-            self.facebookButton.transform  = .identity
-            
+            self.instagramButton.transform      = CGAffineTransform(translationX: -104, y: 0)
+            self.emailButton.transform          = CGAffineTransform(translationX: -30, y: 0)
+            self.twitterButton.transform        = CGAffineTransform(translationX: 30, y: 0)
+            self.facebookButton.transform       = CGAffineTransform(translationX: 104, y: 0)
          })
       } else {
          UIView.animate(withDuration: 0.7, animations: {
@@ -95,14 +67,13 @@ class SecondViewController: UIViewController, SwipeCardsDelegate {
             self.buttonContainerView.transform  = .identity
             self.menuButton.transform           = .identity
             self.toggleSocialButtons()
-            self.instagramButton.transform = CGAffineTransform(translationX: 100, y: 0)
-            self.emailButton.transform     = CGAffineTransform(translationX: 50, y: 0)
-            self.twitterButton.transform   = CGAffineTransform(translationX: -50, y: 0)
-            self.facebookButton.transform  = CGAffineTransform(translationX: -100, y: 0)
+            self.instagramButton.transform      = .identity
+            self.emailButton.transform          = .identity
+            self.twitterButton.transform        = .identity
+            self.facebookButton.transform       = .identity
          })
       }
    }
-   
    
    func toggleSocialButtons() {
       UIView.animate(withDuration: 0.7) {
@@ -114,7 +85,6 @@ class SecondViewController: UIViewController, SwipeCardsDelegate {
       }
    }
    
-   
    func setUpButtonDrawer() {
       buttonBackgroundView.layer.cornerRadius = 22
       buttonBackgroundView.backgroundColor    = UIColor(white: 0.0, alpha: 0.5)
@@ -125,4 +95,24 @@ class SecondViewController: UIViewController, SwipeCardsDelegate {
       twitterButton.alpha   = 0
       facebookButton.alpha  = 0
    }
+}
+
+
+extension SecondViewController : CardViewDataSource {
+   
+   func numberOfCardsToShow() -> Int {
+      return cards.count
+   }
+   
+   func card(at index: Int) -> CardView {
+      let card = CardView()
+      card.dataSource = cards[index]
+      return card
+   }
+   
+   func emptyView() -> UIView? {
+      return nil
+   }
+   
+   
 }

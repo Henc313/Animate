@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
    
-   
    @IBOutlet weak var backgroundImage: UIImageView!
    @IBOutlet weak var titleLabel: UILabel!
    @IBOutlet weak var subtitleLabel: UILabel!
@@ -20,16 +19,13 @@ class ViewController: UIViewController {
    
    override func viewDidLoad() {
       super.viewDidLoad()
-      
       setUpInitialView()
    }
-   
    
    override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
       navigationController?.setNavigationBarHidden(true, animated: false)
    }
-   
    
    override func viewDidDisappear(_ animated: Bool) {
       super.viewDidDisappear(animated)
@@ -39,16 +35,16 @@ class ViewController: UIViewController {
    
    override func viewDidAppear(_ animated: Bool) {
       super.viewDidAppear(animated)
-
-//      UIView.animate(withDuration: 1, animations: {
-//         self.backgroundImage.alpha = 1
-//      }) { (true) in
-//         UIView.animate(withDuration: 1, animations: {
-//            self.titleLabel.alpha = 1
-//         }) { (true) in
-//            self.showTitle()
-//         }
-//      }
+      
+      //      UIView.animate(withDuration: 1, animations: {
+      //         self.backgroundImage.alpha = 1
+      //      }) { (true) in
+      //         UIView.animate(withDuration: 1, animations: {
+      //            self.titleLabel.alpha = 1
+      //         }) { (true) in
+      //            self.showTitle()
+      //         }
+      //      }
    }
    
    
