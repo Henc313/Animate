@@ -11,6 +11,7 @@ import UIKit
 class CardView: UIView {
    
    var delegate: SwipeCardsDelegate?
+   var cardContainer: ContainerView!
    
    var dataSource : Card? {
       didSet {
@@ -19,8 +20,6 @@ class CardView: UIView {
          subtitleLabel.text = dataSource?.title
       }
    }
-   
-   var cardContainer: ContainerView!
    
    //MARK:- Initializers
    override init(frame: CGRect) {

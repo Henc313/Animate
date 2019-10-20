@@ -113,6 +113,4 @@ extension SecondViewController : CardViewDataSource {
    func emptyView() -> UIView? {
       return nil
    }
-   
-   
 }

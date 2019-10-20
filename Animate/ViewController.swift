@@ -36,17 +36,16 @@ class ViewController: UIViewController {
    override func viewDidAppear(_ animated: Bool) {
       super.viewDidAppear(animated)
       
-      //      UIView.animate(withDuration: 1, animations: {
-      //         self.backgroundImage.alpha = 1
-      //      }) { (true) in
-      //         UIView.animate(withDuration: 1, animations: {
-      //            self.titleLabel.alpha = 1
-      //         }) { (true) in
-      //            self.showTitle()
-      //         }
-      //      }
+      UIView.animate(withDuration: 1, animations: {
+         self.backgroundImage.alpha = 1
+      }) { (true) in
+         UIView.animate(withDuration: 1, animations: {
+            self.titleLabel.alpha = 1
+         }) { (true) in
+            self.showTitle()
+         }
+      }
    }
-   
    
    func showTitle() {
       UIView.animate(withDuration: 1, animations: {
@@ -56,7 +55,6 @@ class ViewController: UIViewController {
       }
    }
    
-   
    func showDescription() {
       UIView.animate(withDuration: 1, animations: {
          self.subtitleLabel.alpha = 1
@@ -65,14 +63,12 @@ class ViewController: UIViewController {
       }
    }
    
-   
    func showButtonAndText() {
       UIView.animate(withDuration: 1) {
          self.searchButton.alpha = 1
          self.buttonTitleLabel.alpha = 1
       }
    }
-   
    
    func setUpInitialView() {
       backgroundImage.alpha  = 1
@@ -82,8 +78,6 @@ class ViewController: UIViewController {
       buttonTitleLabel.alpha = 1
       gradientView.setGradient(firstColor: UIColor(white: 0, alpha: 0.0), secondColor: UIColor(white: 0, alpha: 0.3))
    }
-   
-   
 }
 
 
