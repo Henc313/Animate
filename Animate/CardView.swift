@@ -20,6 +20,8 @@ class CardView: UIView {
       }
    }
    
+   var cardContainer: ContainerView!
+   
    //MARK:- Initializers
    override init(frame: CGRect) {
       super.init(frame: frame)
@@ -58,6 +60,7 @@ class CardView: UIView {
    let imageView: UIImageView = {
       let imageView                = UIImageView(frame: CGRect(x: 50, y: 50, width: 100, height: 100))
       imageView.layer.cornerRadius = 12
+      imageView.clipsToBounds      = true
       return imageView
    }()
    
@@ -70,11 +73,12 @@ class CardView: UIView {
    func configureCard() {
       layer.cornerRadius  = 12
       layer.masksToBounds = true
-      backgroundColor     = UIColor(white: 0, alpha: 0.8)
+      backgroundColor     = UIColor(white: 0, alpha: 0.9)
       self.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panCard)))
    }
    
    @objc func panCard(_ sender: UIPanGestureRecognizer) {
+      
       let card = sender.view as! CardView
       let point = sender.translation(in: card)
       let xFromCenter = card.center.x - (self.frame.width / 2)
@@ -89,16 +93,23 @@ class CardView: UIView {
       }
       
       self.thumbImageView.alpha = abs(xFromCenter / (self.frame.width / 2))
+      if cardContainer.subviews.count > 1 {
+         if abs(xFromCenter) < 150 {
+            cardContainer.subviews[1].transform = CGAffineTransform(scaleX: 0.9 + abs(0.00075 * xFromCenter), y: 0.9 + abs(0.00075 * xFromCenter))
+         }
+      }
       
       if sender.state == .ended {
          if card.center.x < 0 {
+            print(card.center.x)
             UIView.animate(withDuration: 0.3, animations: {
                card.center = CGPoint(x: card.center.x - (card.frame.width / 2), y: card.center.y)
                card.alpha = 0
             }) { (true) in
                self.delegate?.swipeDidEnd(on: card)
             }
-         } else if card.center.x > self.frame.width {
+         } else if card.center.x > self.bounds.width {
+            print(card.center.x)
             UIView.animate(withDuration: 0.3, animations:  {
                card.center = CGPoint(x: card.center.x + (card.frame.width / 2), y: card.center.y)
                card.alpha = 0
@@ -107,6 +118,9 @@ class CardView: UIView {
             }
          } else {
             UIView.animate(withDuration: 0.2) {
+               if self.cardContainer.subviews.count > 1 {
+                  self.cardContainer.subviews[1].transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+               }
                card.transform = .identity
                card.center = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
                self.thumbImageView.alpha = 0

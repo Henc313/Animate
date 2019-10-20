@@ -52,8 +52,12 @@ class ContainerView: UIView, SwipeCardsDelegate {
    
    func addCard(card: CardView, at index: Int) {
       card.delegate = self
+      if index == 1 || index == 2 {
+         card.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+      }
       self.insertSubview(card, at: 0)
       remainingcards -= 1
+      card.cardContainer = self
    }
    
    func swipeDidEnd(on cardView: CardView) {
@@ -63,15 +67,6 @@ class ContainerView: UIView, SwipeCardsDelegate {
       if remainingcards > 0 {
          let newIndex = datasource.numberOfCardsToShow() - remainingcards
          addCard(card: datasource.card(at: newIndex), at: 2)
-         for cardView in visibleCards {
-            cardView.centerCardIn(self)
-            cardView.center = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
-            cardView.centerCardIn(cardView)
-         }
-      }else {
-         for cardView in visibleCards {
-            cardView.center = self.center
-         }
       }
    }
 }

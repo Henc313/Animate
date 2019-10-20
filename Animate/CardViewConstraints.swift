@@ -17,25 +17,25 @@ extension CardView {
    }
    
    func setupCardViewConstraints() {
-      self.translatesAutoresizingMaskIntoConstraints              = false
-      self.heightAnchor.constraint(equalToConstant: 460).isActive = true
-      self.widthAnchor.constraint(equalToConstant: 330).isActive  = true
+      self.translatesAutoresizingMaskIntoConstraints                                      = false
+      self.heightAnchor.constraint(equalToConstant: 460).isActive                         = true
+      self.widthAnchor.constraint(equalTo: self.heightAnchor, multiplier: 33/46).isActive = true
    }
    
    func setupLabelConstraints() {
-      titleLabel.translatesAutoresizingMaskIntoConstraints                                   = false
-      titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0).isActive = true
-      titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive        = true
-      titleLabel.widthAnchor.constraint(equalToConstant: 300).isActive                       = true
-      titleLabel.heightAnchor.constraint(equalToConstant: 64).isActive                       = true
+      titleLabel.translatesAutoresizingMaskIntoConstraints                                          = false
+      titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive                     = true
+      titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive               = true
+      titleLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 10/11).isActive      = true
+      titleLabel.heightAnchor.constraint(equalTo: titleLabel.widthAnchor, multiplier: 1/5).isActive = true
    }
    
    func setupSubtitleLabelConstraints() {
-      subtitleLabel.translatesAutoresizingMaskIntoConstraints                                     = false
-      subtitleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0).isActive   = true
-      subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
-      subtitleLabel.widthAnchor.constraint(equalToConstant: 280).isActive                         = true
-      subtitleLabel.heightAnchor.constraint(equalToConstant: 20).isActive                         = true
+      subtitleLabel.translatesAutoresizingMaskIntoConstraints                                           = false
+      subtitleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive                      = true
+      subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive       = true
+      subtitleLabel.widthAnchor.constraint(equalTo: titleLabel.widthAnchor).isActive                    = true
+      subtitleLabel.heightAnchor.constraint(equalTo: titleLabel.heightAnchor, multiplier: 1/3).isActive = true
    }
    
    func setupImageViewConstraints() {
@@ -45,14 +45,13 @@ extension CardView {
       imageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -30).isActive        = true
       imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30).isActive      = true
       imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0).isActive      = true
-      
    }
    
    func setupThumbImageViewConstraints() {
-      thumbImageView.translatesAutoresizingMaskIntoConstraints                                        = false
-      thumbImageView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor).isActive      = true
+      thumbImageView.translatesAutoresizingMaskIntoConstraints                           = false
+      thumbImageView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor).isActive = true
       thumbImageView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor).isActive = true
-      thumbImageView.widthAnchor.constraint(equalToConstant: 140).isActive = true
-      thumbImageView.heightAnchor.constraint(equalToConstant: 140).isActive = true
+      thumbImageView.widthAnchor.constraint(equalToConstant: 140).isActive               = true
+      thumbImageView.heightAnchor.constraint(equalToConstant: 140).isActive              = true
    }
 }
